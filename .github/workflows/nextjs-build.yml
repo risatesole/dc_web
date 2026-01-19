@@ -18,9 +18,12 @@ steps:
     with:
       node-version: 20
       cache: npm
+      cache-dependency-path: app/web/package-lock.json
 
   - name: Install dependencies
+    working-directory: app/web
     run: npm ci
 
   - name: Build Next.js application
+    working-directory: app/web
     run: npm run build
